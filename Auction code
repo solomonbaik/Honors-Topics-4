@@ -53,11 +53,11 @@ contract Auction{
     }
     
     function win() public payable timeLeft{
-        //winner = msg.sender;
+        winner = msg.sender;
         nft.safeTransferFrom(address(this), msg.sender, nftId); //or address(this) instead of seller?
-        //seller.transfer(msg.value);
+        seller.transfer(msg.value);
 
-        //emit PrintWin(msg.sender, msg.value);
+        emit PrintWin(msg.sender, msg.value);
     }
     
     modifier timeLeft(){
